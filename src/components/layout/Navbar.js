@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 // type 'impt' then enter for short cut for PropTypes!
 import PropTypes from 'prop-types';
 
@@ -9,6 +10,14 @@ const Navbar = ({ icon, title }) => {
         <i className={icon} />
         {title}
       </h1>
+      <ul>
+        <li>
+          <Link to='/'>Home</Link>
+        </li>
+        <li>
+          <Link to='/about'>About</Link>
+        </li>
+      </ul>
     </nav>
   );
 };
