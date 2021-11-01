@@ -8,6 +8,7 @@ import Alert from './components/layout/Alert';
 import About from './components/pages/About';
 import axios from 'axios';
 import './App.css';
+import { computeHeadingLevel } from '@testing-library/react';
 
 class App extends Component {
   state = {
@@ -42,9 +43,9 @@ class App extends Component {
   getUser = async (username) => {
     this.setState({ loading: true });
     const res = await axios.get(
-      `https://api.github.com/users/${username}&client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`
+      `https://api.github.com/users/${username}?client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`
     );
-
+    console.log(res);
     this.setState({ user: res.data, loading: false });
   };
 
